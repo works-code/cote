@@ -1,5 +1,4 @@
-class Main
-{  
+public class Main{
     public static void main(String args[])
     {
         System.out.println("|\\_/|");
@@ -8,4 +7,4 @@ class Main
         System.out.println("|\"^\"`    |");
         System.out.println("||_/=\\\\__|");
     }
-}
+}F
