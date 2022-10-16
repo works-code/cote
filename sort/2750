@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        // get O(1), add/del O(N)
+        // int [] list = new int [N];
+        // get O(1), add/del O(N) > 배열보다는 메모리 공간을 조금 더 사용
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 0;i < N; i++){
+            list.add(sc.nextInt());
+        }
+        // 평균 O(NlogN) 최악 O(N^2) > 배열용
+        // Arrays.sort(list);
+        // 평균 최악 O(NlogN) > 컬렉션용
+        Collections.sort(list);
+        for (int i : list){
+            System.out.println(i);
+        }
+    }
+}
