@@ -1,0 +1,79 @@
+// 재귀
+import java.util.*;
+public class Main{
+    static int count = 0;
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        int [] arr = new int[T];
+        for (int i = 0; i < T; i++){
+            arr[i] = sc.nextInt();
+        }
+        for(int i : arr){
+            count = 0;
+            F(i);
+            System.out.println(count);
+        }
+    }
+
+    public static void F(int N){
+        if(N >= 3){
+            F(N-1);
+            F(N-2);
+            F(N-3);
+        }else if(N >= 2){
+            F(N-1);
+            F(N-2);
+        }else if(N >= 1){
+            F(N-1);
+        }else{
+            count++;
+        }
+    }
+}
+// DP
+import java.util.*;
+public class Main{
+    static int count = 0;
+    static int memory [];
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        int [] arr = new int[T];
+        for (int i = 0; i < T; i++){
+            arr[i] = sc.nextInt();
+        }
+        memory = new int[11];
+        memory[1] = 1;
+        memory[2] = 2;
+        memory[3] = 4;
+        for (int i =4 ;i < 11; i++){
+            count = 0;
+            F(i);
+            memory[i] = count;
+        }
+        for(int i : arr){
+            System.out.println(memory[i]);
+        }
+    }
+
+    public static void F(int N){
+        if(memory[N] != 0){
+            count += memory[N];
+        }else{
+            if(N >= 3){
+                F(N-1);
+                F(N-2);
+                F(N-3);
+            }else if(N >= 2){
+                F(N-1);
+                F(N-2);
+            }else if(N >= 1){
+                F(N-1);
+            }else{
+                count++;
+            }
+        }
+    }
+}
+
