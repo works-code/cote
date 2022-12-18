@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = 28;
+        ArrayList<Integer> list = new ArrayList<>();
+        while(n > 0){
+            n--;
+            list.add(sc.nextInt());
+        }
+        int printCount = 0;
+        for (int i = 1 ;i <= 30; i++){
+            if(!list.contains(i)){
+                System.out.println(i);
+                printCount ++;
+            }
+            if(printCount == 2){
+                break;
+            }
+        }
+    }
+}

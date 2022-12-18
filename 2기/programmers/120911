@@ -1,0 +1,11 @@
+- https://school.programmers.co.kr/learn/courses/30/lessons/120911
+
+import java.util.Arrays;
+class Solution {
+    public String solution(String my_string) {
+        String answer = "";
+        char[] c = my_string.toLowerCase().toCharArray();
+        Arrays.sort(c);
+        return new String(c);
+    }
+}

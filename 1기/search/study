@@ -1,0 +1,7 @@
+int N ; // 노드수
+        int K ; // 몇분 대여하는지
+        int [][] roads = {{5,4,6},{5,2,5},{0,4,2},{2,3,3},{1,2,7},{0,1,3}}; // 2차원 배열 그래프
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();
+        K = sc.nextInt();
+        // 0에서 부터 최단 거리는?

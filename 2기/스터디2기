@@ -1,0 +1,59 @@
+# Keyword
+정영현님: 자바개발자, 빠른 94, E(I)NTJ
+하진성님: 엔지니어 > 백앤드 전환을 위함, 경상도, INFJ
+김다은님: 빠른 95, sm, 할일이 없음, ENTP
+홍유리님: 서버 백앤드, 엔지니어, ENTP
+장지혁님: 항공 sm, 벌칙유력자, INFJ
+김재관님: FE, 할일이 없음, 부산, INFJ
+
+# 문제 담당자 순서
+-1 배열 정영현님
+-2 그래프 하진성님
+-3 링크드리스트 김다은님
+-4 큐/스택 홍유리님
+-5 정렬 장지혁님
+-6 트리 김재관님
+-7 그리디 알고리즘 정영현님
+-8 검색 하진성님
+-9 동적계획법 김다은님
+
+
+여러 컨테이너 관리
+
+실행중인 프로젝트 목록 확인
+docker-compose ls
+전체 프로젝트 목록 확인
+docker-compose ls -a
+이미지 빌드 컨테이너 생성 및 시작
+docker-compose up
+// 명칭
+network name : [projectname]_default
+container name : [projectName]-[serviceName]-[containerNo]
+// -p는 프로젝트명 지정 -d 는 백그라운드로 실행
+docker-compose -p [projectName] up -d
+// 컨테이너 및 네트워크 종료 및 제거 // -v 넣을시 볼륨도 제거
+docker-compose down
+// '--scale [serviceName]=3'은 서비스가 3개 생성됨
+// scale 기능을 이용하기 위해서는 docker-compose.yml 파일에 container_name 옵션과 ports 옵션에 로컬 포트 지정("[로컬포트]:[컨테이너포트]") 해서는 안된다.
+docker-compose up --scale [serviceName]=3 -d
+// 프로젝트 내 로그 확인
+docker-compose logs
+// 프로젝트 내 컨테이너 이벤트 확인
+docker-compose events
+// 프로젝트 내 이미지 목록
+docker-compose images
+// 프로젝트 내 컨테이너 목록 
+docker-compose ps
+// 프로젝트 내 실행중인 프로세스 목록
+docker-compose top
+
+yaml 파일을 통해 선언적으로 관리 가능
+
+// 도커를 통해 frafana+mysql 구성 하는 실습
+1. Grafana의 3000번 포트는 호스트의 3000번 포트와 바인딩
+2. Grafana의 설정 파일인 grafana.ini는 호스트에서 주입 가능하도록 구성하고 읽기 전용 설정
+3. Grafana의 로컬 데이터 저장 경로를 확인하여 도커 볼륨 마운트 
+4. Grafana의 플러그인 추가 설치를 위한 환경 변수 설정 
+5. 로그 드리아버 옵션을 통해 로그 로테이팅
+// SQLite(file type 데이터) > mysql (이용자수가 많아짐에 따라 mysql로 변경)
+
