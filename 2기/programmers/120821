@@ -1,0 +1,15 @@
+// 내가 작성한 코드
+public static int[] solution(int[] num_list) {
+        int [] answer = new int[num_list.length];
+        for(int i = num_list.length-1; i > -1; i--){
+            answer[(num_list.length-1)-i] = num_list[i];
+        }
+        return answer;
+    }
+
+// 좋아요 많이 받은 코드
+public static int[] solution(int[] num_list) {
+        List<Integer> temp = Arrays.stream(num_list).boxed().collect(Collectors.toList());
+        Collections.reverse(temp);
+        return temp.stream().mapToInt(Integer::intValue).toArray();
+    }
